@@ -19,7 +19,7 @@ export NVM_DIR="/home/vagrant/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 nvm install 4.4.3
-npm i -g pre-gypify node-pre-gyp node-gyp
+npm i -g pre-gypify@nolanlawson/pre-gypify#patch-1 node-pre-gyp node-gyp
 node-gyp install 4.4.3
 
 rm -rf /work/binary-module/output
