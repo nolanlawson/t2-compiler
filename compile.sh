@@ -85,9 +85,11 @@ npm install --ignore-scripts
 pre-gypify --package_name "{name}-{version}-{configuration}.tgz"
 
 node-pre-gyp rebuild --target_platform=linux --target_arch=$ARCH --target=$NODE --debug
+rm -fr out && cp -r build out && cp -r out/Debug out/Release
 node-pre-gyp package --target_platform=linux --target_arch=$ARCH --target=$NODE --debug
 find build/stage -type f | xargs -i cp {} /work/binary-module/output
 node-pre-gyp rebuild --target_platform=linux --target_arch=$ARCH --target=$NODE
+rm -fr out && cp -r build out
 node-pre-gyp package --target_platform=linux --target_arch=$ARCH --target=$NODE
 find build/stage -type f | xargs -i cp {} /work/binary-module/output
 EOF
